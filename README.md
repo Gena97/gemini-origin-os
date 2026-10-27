@@ -108,4 +108,4 @@ apksigner sign --ks release.keystore Gemini_by_kaiser.apk
 
 Распространяется под свободной лицензией [MIT](LICENSE). Разрешено свободное использование, модификация и распространение.
 
-Автор: **Kaiser** ([@kaiser10669-svg](https://github.com/kaiser10669-svg) • [@KaiserReichDragon](https://youtube.com/@KaiserReichDragon))
+Автор: **Kaiser** ([@kaiser10669-svg](https://github.com/kaiser10669-svg) • [@Kaiser](https://youtube.com/@KaiserReichDragon))
