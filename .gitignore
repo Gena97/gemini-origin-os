@@ -1,0 +1,17 @@
+# Gradle / Build
+.gradle/
+build/
+*.class
+*.dex
+obj/
+bin/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# OS
+Thumbs.db
+.DS_Store
+*.log
