@@ -19,8 +19,17 @@ set "APK=%~dp0Gemini_X200_Pro_OriginOS6_v3.1.apk"
 if not exist "%APK%" goto missing_files
 
 echo [1/4] Проверка подключения и конфигурации устройства...
+set "CONNECTION_ATTEMPTS=0"
+:check_connection
 "%ADB%" get-state
-if errorlevel 1 goto error
+if not errorlevel 1 goto connected
+set /a CONNECTION_ATTEMPTS+=1 >nul
+if %CONNECTION_ATTEMPTS% GEQ 10 goto error
+echo Ожидание подключения после запуска ADB...
+ping.exe -n 2 -w 1000 127.0.0.1 >nul
+goto check_connection
+
+:connected
 echo Модель устройства:
 "%ADB%" shell getprop ro.product.model
 if errorlevel 1 goto error
@@ -86,6 +95,7 @@ goto error
 :error
 echo.
 echo Установка не завершена - проверьте сообщение об ошибке выше
+echo При отказе Android разблокируйте телефон и подтвердите установку, затем повторите запуск
 echo Уже выполненные команды автоматически не откатываются
 echo При несовпадении подписи скрипт остановится и не удалит приложение
 echo Порядок переустановки и возврата к v3.0 описан в README.md этой папки
